@@ -1,1 +1,11 @@
-MainFunction
+#! python3
+from urllib.request import urlopen
+from bs4 import BeautifulSoup
+try:
+  html = urlopen("http://pythonscraping.com/pages/page1.html")
+if html is none:
+  print("URL is not found")
+else:
+ #program continues
+bsObj = print(html.read())
+print(bsObj.h1)
