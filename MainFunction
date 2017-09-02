@@ -2,5 +2,5 @@ from urllib.request import urlopen
 from bs4 import BeautifulSoup
 url = 'https://www.apple.com/'
 html = urlopen(url) 
-bsObj = BeautifulSoup(html.read())
+bsObj = BeautifulSoup(html.read(),"html.parser")
 print(bsObj.h1)
