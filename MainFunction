@@ -1,6 +1,22 @@
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
-url = 'https://www.apple.com/'
-html = urlopen(url) 
+url = 'https://sfbay.craigslist.org/search/eby/cta'
+baseurl = 'craigslist.com'
+data = (title.get_text())
+
+html = urlopen(url)
 bsObj = BeautifulSoup(html.read(),"html.parser")
-print(bsObj.h1)
+#Declaring a varibale for the titles of each listing
+TitleList = bsObj.findAll("p", {"class":"result-info"})
+for title in TitleList:
+    #extract all the unwanted stuff
+    unwanted = bsObj.find('span',{"class":"banish icon icon-trash"})
+    unwanted.extract()
+    unwanted2 = bsObj.find('a',{"class":"restore-link"})
+    unwanted2.extract()
+    unwanted3 = bsObj.find('span', {"class": "result-tags"})
+    unwanted3.extract()
+
+    
+    print(data)
+    
