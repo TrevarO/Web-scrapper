@@ -2,7 +2,7 @@ from urllib.request import urlopen
 from bs4 import BeautifulSoup
 url = 'https://sfbay.craigslist.org/search/eby/cta'
 baseurl = 'craigslist.com'
-data = (title.get_text())
+
 
 html = urlopen(url)
 bsObj = BeautifulSoup(html.read(),"html.parser")
@@ -17,6 +17,6 @@ for title in TitleList:
     unwanted3 = bsObj.find('span', {"class": "result-tags"})
     unwanted3.extract()
 
-    
+    data = (title.get_text())
     print(data)
     
